@@ -1,7 +1,12 @@
-import "./App.css";
+import reportWebVitals from "./reportWebVitals";
 
 function App() {
-  return <h1>asdasdoo</h1>;
+  return (
+    <>
+      <h1>asd</h1>
+      {reportWebVitals(console.log)}
+    </>
+  );
 }
 
 export default App;
