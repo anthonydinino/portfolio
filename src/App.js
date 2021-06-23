@@ -1,7 +1,8 @@
+import Header from "./Header";
 function App() {
   return (
     <>
-      <h1>yo</h1>
+      <Header />
     </>
   );
 }
