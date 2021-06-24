@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import "./fonts.css";
-import Content from "./Content";
-import Footer from "./Footer";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
 import React, { useEffect, useState } from "react";
 
 export const AppContext = React.createContext();
