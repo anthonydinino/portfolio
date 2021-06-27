@@ -13,10 +13,12 @@ const Header = () => {
   const { isMobileView } = useContext(AppContext);
   const useStyles = makeStyles(() => ({
     header: {
+      position: "static",
       backgroundColor: "#2F4858",
     },
     toolbar: {
       justifyContent: "space-between",
+      variant: "dense",
     },
     icons: {
       width: "10%",

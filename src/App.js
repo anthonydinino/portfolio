@@ -11,7 +11,7 @@ function App() {
   const [state, setState] = useState({ isMobileView: false });
   useEffect(() => {
     const setResponsiveness = () => {
-      return window.innerWidth < 900
+      return window.innerWidth < 768
         ? setState(() => ({ isMobileView: true }))
         : setState(() => ({ isMobileView: false }));
     };
