@@ -1,5 +1,13 @@
 import React from "react";
-import { AppBar, Toolbar, makeStyles, Link } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  makeStyles,
+  Link,
+  Grid,
+  Box,
+  Typography,
+} from "@material-ui/core";
 import { GitHub, Facebook, LinkedIn, Instagram } from "@material-ui/icons";
 
 const iconAttributes = {
@@ -12,9 +20,7 @@ const iconAttributes = {
 const Footer = () => {
   const styles = makeStyles({
     footer: {
-      display: "flexbox",
-      justifyContent: "flex-end",
-      bottom: "0",
+      alignItems: "center",
       background: "#2F4858",
     },
     icons: {
@@ -50,7 +56,12 @@ const Footer = () => {
   return (
     <footer>
       <AppBar position={"static"} className={footer}>
-        <Toolbar>{displayIcons}</Toolbar>
+        <Toolbar children={displayIcons}></Toolbar>
+        <Box textAlign="center" pt={{ xs: 2 }} pb={{ xs: 2 }}>
+          <Typography>
+            Anthony Dinino &reg; {new Date().getFullYear()}
+          </Typography>
+        </Box>
       </AppBar>
     </footer>
   );

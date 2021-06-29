@@ -1,43 +1,65 @@
 import React, { useContext } from "react";
-import { AppBar, Toolbar, Typography, makeStyles } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  makeStyles,
+  Link,
+} from "@material-ui/core";
+import { Menu } from "@material-ui/icons";
 import { AppContext } from "../App";
 
 const Header = () => {
-  const { isMobileView } = useContext(AppContext);
+  const { isMobileView, navBarHeight } = useContext(AppContext);
   const useStyles = makeStyles(() => ({
     header: {
-      position: "static",
       backgroundColor: "#2F4858",
+      minHeight: navBarHeight,
+    },
+    mobileHeader: {
+      alignItems: "start",
     },
     toolbar: {
       justifyContent: "space-between",
       variant: "dense",
     },
-    mobileHeader: {
-      alignItems: "center",
-    },
     logo: {
       fontFamily: "Bungee Inline",
     },
+    menu: {
+      marginRight: "4vw",
+    },
   }));
-  const { toolbar, header, logo, mobileHeader } = useStyles();
+  const { menu, toolbar, header, logo, mobileHeader } = useStyles();
 
   const AnthonyDininoLogo = (
     <Typography className={logo} variant="h6" component="h1">
       Anthony Dinino
     </Typography>
   );
+
+  const navLinks = (
+    <>
+      <Link href="/contact">Contact</Link>
+    </>
+  );
   const displayDesktop = () => {
     return (
       <AppBar className={header}>
-        <Toolbar className={toolbar}>{AnthonyDininoLogo}</Toolbar>
+        <Toolbar className={toolbar}>
+          {AnthonyDininoLogo}
+          {navLinks}
+        </Toolbar>
       </AppBar>
     );
   };
   const displayMobile = () => {
     return (
       <AppBar className={`${header} ${mobileHeader}`}>
-        <Toolbar>{AnthonyDininoLogo}</Toolbar>
+        <Toolbar>
+          <Menu className={menu} />
+          {AnthonyDininoLogo}
+        </Toolbar>
       </AppBar>
     );
   };

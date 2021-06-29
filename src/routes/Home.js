@@ -12,17 +12,14 @@ const Content = () => {
       fontWeight: "bold",
     },
     subheader: {
+      marginTop: "1vh",
       textTransform: "uppercase",
       fontFamily: "Poiret One",
       letterSpacing: "0.6vw",
       fontWeight: "bold",
     },
-    grid: {
-      height: "100vh",
-      "& > *": {},
-    },
   });
-  const { grid, header, subheader } = useStyles();
+  const { header, subheader } = useStyles();
 
   const desktopTextHeader = (
     <>
@@ -50,7 +47,7 @@ const Content = () => {
       <Typography
         className={header}
         align={"center"}
-        variant="h4"
+        variant="h3"
         component="h1"
       >
         Hi, I'm Anthony
@@ -72,9 +69,9 @@ const Content = () => {
         container
         justify={"center"}
         alignContent={"center"}
-        className={grid}
+        style={{ height: "100vh" }}
       >
-        <Grid item xs={10} sm={10}>
+        <Grid item xs={11}>
           {isMobileView ? mobileTextHeader : desktopTextHeader}
         </Grid>
       </Grid>
