@@ -1,8 +1,9 @@
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import "./fonts.css";
-import Content from "./components/Content";
+import Home from "./routes/Home";
 import Footer from "./components/Footer";
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 export const AppContext = React.createContext();
 
@@ -12,8 +13,8 @@ function App() {
   useEffect(() => {
     const setResponsiveness = () => {
       return window.innerWidth < 768
-        ? setState(() => ({ isMobileView: true }))
-        : setState(() => ({ isMobileView: false }));
+        ? setState(() => ({ ...state, isMobileView: true }))
+        : setState(() => ({ ...state, isMobileView: false }));
     };
 
     setResponsiveness();
@@ -26,9 +27,15 @@ function App() {
 
   return (
     <AppContext.Provider value={state}>
-      <Header />
-      <Content />
-      <Footer />
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
     </AppContext.Provider>
   );
 }
