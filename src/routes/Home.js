@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { makeStyles, Typography, Grid } from "@material-ui/core";
+import { makeStyles, Typography, Box, Button, Link } from "@material-ui/core";
 import { AppContext } from "../App";
 
 const Content = () => {
@@ -10,7 +10,7 @@ const Content = () => {
       fontFamily: "Castoro",
       letterSpacing: "1vw",
       fontWeight: "bold",
-      animation: "$enlarge 5s",
+      animation: "$fadein 2s ease-out",
     },
 
     subheader: {
@@ -19,12 +19,19 @@ const Content = () => {
       fontFamily: "Poiret One",
       letterSpacing: "0.6vw",
       fontWeight: "bold",
-      animation: "$enlarge 5s",
+      animation: "$fadein 2s ease-out",
     },
 
-    "@keyframes enlarge": {
+    button: {
+      opacity: 0,
+      marginTop: "5vh",
+      animation: "$fadein 1s ease-out 2s",
+      animationFillMode: "forwards",
+    },
+
+    "@keyframes fadein": {
       "0%": {
-        opacity: 0.1,
+        opacity: 0,
         transform: "scale(0.9)",
       },
       "100%": {
@@ -33,41 +40,39 @@ const Content = () => {
       },
     },
   });
-  const { header, subheader } = useStyles();
-
-  const textHeader = (
-    <>
-      <Typography
-        className={header}
-        align={"center"}
-        variant={isDesktop ? "h2" : "h4"}
-        component={isDesktop ? "h2" : "h4"}
-      >
-        Hi, I'm Anthony
-      </Typography>
-      <Typography
-        className={subheader}
-        align={"center"}
-        variant={isDesktop ? "h4" : "h6"}
-        component={isDesktop ? "h4" : "h6"}
-      >
-        And I'm a Web Developer...
-      </Typography>
-    </>
-  );
+  const { header, subheader, button } = useStyles();
 
   return (
     <main>
-      <Grid
-        container
-        justify={"center"}
-        alignContent={"center"}
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"center"}
+        alignItems={"center"}
         style={{ height: "100vh" }}
       >
-        <Grid item xs={11}>
-          {textHeader}
-        </Grid>
-      </Grid>
+        <Box xs={11}>
+          <Typography
+            className={header}
+            align={"center"}
+            variant={isDesktop ? "h2" : "h4"}
+            component={isDesktop ? "h2" : "h4"}
+          >
+            Hi, I'm Anthony
+          </Typography>
+          <Typography
+            className={subheader}
+            align={"center"}
+            variant={isDesktop ? "h5" : "h6"}
+            component={isDesktop ? "h5" : "h6"}
+          >
+            And I'm a Web Developer...
+          </Typography>
+        </Box>
+        <Button className={button} href={"/about"}>
+          Learn about me...
+        </Button>
+      </Box>
     </main>
   );
 };

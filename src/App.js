@@ -22,6 +22,30 @@ function App() {
         sm: 738,
       },
     },
+
+    palette: {
+      primary: {
+        main: "#2F4858",
+      },
+      secondary: {
+        main: "#00BEFF",
+      },
+    },
+    typography: {
+      button: {
+        fontWeight: "bolder",
+        fontFamily: "Tahoma",
+      },
+    },
+    props: {
+      MuiButton: {
+        variant: "outlined",
+        color: "inherit",
+      },
+      MuiLink: {
+        color: "inherit",
+      },
+    },
   });
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 

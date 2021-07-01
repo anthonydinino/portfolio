@@ -4,7 +4,6 @@ import {
   Toolbar,
   makeStyles,
   Link,
-  Grid,
   Box,
   Typography,
 } from "@material-ui/core";
@@ -21,7 +20,6 @@ const Footer = () => {
   const styles = makeStyles({
     footer: {
       alignItems: "center",
-      background: "#2F4858",
     },
     icons: {
       "& > *": {
