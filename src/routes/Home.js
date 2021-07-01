@@ -10,13 +10,27 @@ const Content = () => {
       fontFamily: "Castoro",
       letterSpacing: "1vw",
       fontWeight: "bold",
+      animation: "$enlarge 5s",
     },
+
     subheader: {
       marginTop: "1vh",
       textTransform: "uppercase",
       fontFamily: "Poiret One",
       letterSpacing: "0.6vw",
       fontWeight: "bold",
+      animation: "$enlarge 5s",
+    },
+
+    "@keyframes enlarge": {
+      "0%": {
+        opacity: 0.1,
+        transform: "scale(0.9)",
+      },
+      "100%": {
+        opacity: 1,
+        transform: "scale(1)",
+      },
     },
   });
   const { header, subheader } = useStyles();
