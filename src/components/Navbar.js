@@ -10,7 +10,8 @@ import { Menu } from "@material-ui/icons";
 import { AppContext } from "../App";
 
 const Header = () => {
-  const { isMobileView, navBarHeight } = useContext(AppContext);
+  const { isDesktop, navBarHeight } = useContext(AppContext);
+  console.log(isDesktop);
   const useStyles = makeStyles(() => ({
     header: {
       backgroundColor: "#2F4858",
@@ -63,9 +64,10 @@ const Header = () => {
       </AppBar>
     );
   };
+  console.log(isDesktop);
   return (
     <>
-      <nav>{isMobileView ? displayMobile() : displayDesktop()}</nav>
+      <nav>{isDesktop ? displayDesktop() : displayMobile()}</nav>
     </>
   );
 };

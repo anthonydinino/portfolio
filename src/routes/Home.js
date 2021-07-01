@@ -3,7 +3,7 @@ import { makeStyles, Typography, Grid } from "@material-ui/core";
 import { AppContext } from "../App";
 
 const Content = () => {
-  const { isMobileView } = useContext(AppContext);
+  const { isDesktop } = useContext(AppContext);
   const useStyles = makeStyles({
     header: {
       textTransform: "uppercase",
@@ -35,42 +35,21 @@ const Content = () => {
   });
   const { header, subheader } = useStyles();
 
-  const desktopTextHeader = (
+  const textHeader = (
     <>
       <Typography
         className={header}
         align={"center"}
-        variant="h2"
-        component="h1"
+        variant={isDesktop ? "h2" : "h4"}
+        component={isDesktop ? "h2" : "h4"}
       >
         Hi, I'm Anthony
       </Typography>
       <Typography
         className={subheader}
         align={"center"}
-        variant="h6"
-        component="h1"
-      >
-        And I'm a Web Developer...
-      </Typography>
-    </>
-  );
-
-  const mobileTextHeader = (
-    <>
-      <Typography
-        className={header}
-        align={"center"}
-        variant="h3"
-        component="h1"
-      >
-        Hi, I'm Anthony
-      </Typography>
-      <Typography
-        className={subheader}
-        align={"center"}
-        variant="h6"
-        component="h1"
+        variant={isDesktop ? "h4" : "h6"}
+        component={isDesktop ? "h4" : "h6"}
       >
         And I'm a Web Developer...
       </Typography>
@@ -86,7 +65,7 @@ const Content = () => {
         style={{ height: "100vh" }}
       >
         <Grid item xs={11}>
-          {isMobileView ? mobileTextHeader : desktopTextHeader}
+          {textHeader}
         </Grid>
       </Grid>
     </main>

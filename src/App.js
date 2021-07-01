@@ -5,35 +5,35 @@ import Error from "./routes/Error";
 import Footer from "./components/Footer";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ThemeProvider, createMuiTheme } from "@material-ui/core";
+import {
+  ThemeProvider,
+  createMuiTheme,
+  useMediaQuery,
+} from "@material-ui/core";
 
 export const AppContext = React.createContext();
+//override default theme
 
 function App() {
-  //global variables
+  //override theme
+  const theme = createMuiTheme({
+    breakpoints: {
+      values: {
+        sm: 738,
+      },
+    },
+  });
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
   const [state, setState] = useState({
     navBarHeight: "64px",
-    isMobileView: false,
+    isDesktop: matches,
   });
 
-  //listen for if screen width is mobile or not
   useEffect(() => {
-    const setResponsiveness = () => {
-      return window.innerWidth < 768
-        ? setState(() => ({ ...state, isMobileView: true }))
-        : setState(() => ({ ...state, isMobileView: false }));
-    };
-
-    setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());
-
-    return () => {
-      window.removeEventListener("resize", () => setResponsiveness());
-    };
-  }, []);
-
-  //override theme
-  const theme = createMuiTheme({});
+    setState({ ...state, isDesktop: matches });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [matches]);
 
   return (
     <ThemeProvider theme={theme}>
