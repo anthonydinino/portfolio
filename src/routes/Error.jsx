@@ -12,7 +12,7 @@ const Error = () => {
       }}
     >
       <Box alignItems="center" display="flex" flexDirection="column">
-        <Box mt={4}>
+        <Box>
           <Typography variant={"h2"} align={"center"}>
             Error
           </Typography>

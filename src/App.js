@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import "./fonts.css";
 import Home from "./routes/Home";
+import Contact from "./routes/Contact";
 import Error from "./routes/Error";
 import Footer from "./components/Footer";
 import React, { useEffect, useState } from "react";
@@ -11,6 +12,7 @@ import {
   useMediaQuery,
   Drawer,
 } from "@material-ui/core";
+import About from "./routes/About";
 
 export const AppContext = React.createContext();
 //override default theme
@@ -36,6 +38,20 @@ function App() {
       button: {
         fontWeight: "bolder",
         fontFamily: "Tahoma",
+      },
+      allVariants: {
+        fontFamily: "Montserrat",
+      },
+      h2: {
+        margin: "1ch",
+        fontWeight: "bold",
+      },
+      h4: {
+        margin: "1ch",
+        fontWeight: "bold",
+      },
+      h6: {
+        fontWeight: "Bold",
       },
     },
     props: {
@@ -68,6 +84,12 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/contact">
+              <Contact />
             </Route>
             <Route path="*">
               <Error />

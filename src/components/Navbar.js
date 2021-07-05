@@ -55,7 +55,7 @@ const Header = () => {
 
   const menuLinks = [
     { label: "Home", href: "/" },
-    { label: "About Me", href: "/about" },
+    { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },
     { label: "Contact", href: "/contact" },
   ];
