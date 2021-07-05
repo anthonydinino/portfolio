@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { makeStyles, Typography, Box, Button, Link } from "@material-ui/core";
+import { makeStyles, Typography, Box, Button } from "@material-ui/core";
 import { AppContext } from "../App";
 
 const Content = () => {

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -7,12 +7,17 @@ import {
   Button,
   Box,
   Link,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
 } from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
+import { Menu, Close } from "@material-ui/icons";
 import { AppContext } from "../App";
 
 const Header = () => {
   const { isDesktop, navBarHeight } = useContext(AppContext);
+  const [drawerState, setState] = useState(false);
   const useStyles = makeStyles(() => ({
     header: {
       minHeight: navBarHeight,
@@ -49,6 +54,7 @@ const Header = () => {
   );
 
   const menuLinks = [
+    { label: "Home", href: "/" },
     { label: "About Me", href: "/about" },
     { label: "Projects", href: "/projects" },
     { label: "Contact", href: "/contact" },
@@ -80,16 +86,41 @@ const Header = () => {
       </AppBar>
     );
   };
+
+  const getDrawerLinks = () => {
+    return (
+      <List>
+        <ListItem button divider>
+          <Close onClick={() => setState(!drawerState)} />
+        </ListItem>
+        {menuLinks.map(({ label, href }) => {
+          return (
+            <ListItem
+              {...{ button: true, component: "a", key: label, href: href }}
+              onClick={() => setState(!drawerState)}
+            >
+              <ListItemText>{label}</ListItemText>
+            </ListItem>
+          );
+        })}
+      </List>
+    );
+  };
+
   const displayMobile = () => {
     return (
       <AppBar className={`${header} ${mobileHeader}`}>
+        <Drawer open={drawerState} variant="temporary" anchor="top">
+          {getDrawerLinks()}
+        </Drawer>
         <Toolbar>
-          <Menu className={menuIcon} />
+          <Menu className={menuIcon} onClick={() => setState(!drawerState)} />
           {AnthonyDininoLogo}
         </Toolbar>
       </AppBar>
     );
   };
+
   return (
     <>
       <nav>{isDesktop ? displayDesktop() : displayMobile()}</nav>

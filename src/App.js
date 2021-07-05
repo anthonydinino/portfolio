@@ -9,6 +9,7 @@ import {
   ThemeProvider,
   createMuiTheme,
   useMediaQuery,
+  Drawer,
 } from "@material-ui/core";
 
 export const AppContext = React.createContext();
@@ -72,6 +73,7 @@ function App() {
               <Error />
             </Route>
           </Switch>
+          <Drawer variant="permanent"></Drawer>
           <Footer />
         </Router>
       </AppContext.Provider>
