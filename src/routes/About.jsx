@@ -18,8 +18,9 @@ const About = () => {
       minHeight: "20rem",
     },
     imageIcon: {
-      height: "100%",
-      width: "100%",
+      objectFit: "contain",
+      height: "15rem",
+      maxWidth: "90%",
     },
   });
   const { image, imageIcon } = useStyles();
@@ -129,7 +130,7 @@ const About = () => {
         >
           Where to now?
         </Typography>
-        <Typography>
+        <Typography align="center">
           With experience in the IT industry since 2015 and a Bachelor's Degree
           in Information Technology, Anthony is taking a proactive approach to
           helping businesses independently. Anthony is constantly learning the
@@ -146,13 +147,55 @@ const About = () => {
           Technologies Learnt
         </Typography>
       </Grid>
-      <Grid container>
-        <Grid item xs={6} sm={3}>
-          <Box display="flex" flexDirection="column">
+    </>
+  );
+
+  const technologyList = [
+    { src: "mongodb.png", desc: "Mongo DB" },
+    {
+      src: "express.png",
+      desc: "Express.js",
+    },
+    {
+      src: "react.png",
+      desc: "React.js",
+    },
+    {
+      src: "node.png",
+      desc: "Node.js",
+    },
+    {
+      src: "materialui.png",
+      desc: "Material UI Framework",
+    },
+    {
+      src: "html.png",
+      desc: "Hypertext Markup Language",
+    },
+    {
+      src: "javascript.png",
+      desc: "Javascript ES6",
+    },
+    {
+      src: "css.png",
+      desc: "Cascading Style Sheets",
+    },
+  ];
+
+  const getTechs = () => {
+    return technologyList.map(({ src, desc }) => {
+      return (
+        <Grid item key={desc} xs={6} sm={3}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            style={{ height: "20rem" }}
+            alignItems="center"
+          >
             <img
               className={imageIcon}
-              src={`${process.env.PUBLIC_URL}/assets/react.png`}
-              alt="Anthony Dinino on the job at 2Excel with fellow co-worker Alexander Selman"
+              src={`${process.env.PUBLIC_URL}/assets/technologies/${src}`}
+              alt={desc}
             />
             <CardContent>
               <Typography
@@ -161,14 +204,15 @@ const About = () => {
                 component="p"
                 align="center"
               >
-                React.js
+                {desc}
               </Typography>
             </CardContent>
           </Box>
         </Grid>
-      </Grid>
-    </>
-  );
+      );
+    });
+  };
+  const technologies = <Grid container>{getTechs()}</Grid>;
   return (
     <main
       style={{
@@ -184,6 +228,7 @@ const About = () => {
           {qualifications}
           {experience}
           {whatnow}
+          {technologies}
         </Grid>
       </Box>
     </main>
