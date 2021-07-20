@@ -22,8 +22,9 @@ const Footer = () => {
       alignItems: "center",
     },
     icons: {
-      "& > *": {
-        margin: "0px 5px",
+      "& > * > *": {
+        transform: "scale(1.5)",
+        margin: "8px 16px",
       },
       "& > a:hover": {
         color: "#A1CAC2",
@@ -46,7 +47,7 @@ const Footer = () => {
         <LinkedIn />
       </Link>
       <Link {...iconAttributes} href={"https://github.com/anthonydinino/"}>
-        <GitHub />
+        <GitHub style={{ transform: "scale(1.3)" }} />
       </Link>
     </div>
   );
@@ -55,7 +56,7 @@ const Footer = () => {
     <footer>
       <AppBar position={"static"} className={footer}>
         <Toolbar children={displayIcons}></Toolbar>
-        <Box textAlign="center" pt={{ xs: 2 }} pb={{ xs: 2 }}>
+        <Box textAlign="center">
           <Typography>
             Anthony Dinino &reg; {new Date().getFullYear()}
           </Typography>

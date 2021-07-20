@@ -3,7 +3,7 @@ import { makeStyles, Typography, Box, Button } from "@material-ui/core";
 import { AppContext } from "../App";
 
 const Content = () => {
-  const { isDesktop } = useContext(AppContext);
+  const { isDesktop, footerHeight } = useContext(AppContext);
   const useStyles = makeStyles({
     header: {
       textTransform: "uppercase",
@@ -41,6 +41,7 @@ const Content = () => {
     },
   });
   const { header, subheader, button } = useStyles();
+  console.log(footerHeight);
 
   return (
     <main>
@@ -49,7 +50,7 @@ const Content = () => {
         flexDirection={"column"}
         justifyContent={"center"}
         alignItems={"center"}
-        style={{ height: "100vh" }}
+        style={{ height: `calc(100vh - ${footerHeight}px)` }}
       >
         <Box xs={11}>
           <Typography

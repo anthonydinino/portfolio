@@ -5,12 +5,12 @@ import { AppContext } from "../App";
 const Contact = () => {
   const useStyles = makeStyles({});
   const { header } = useStyles();
-  const { navBarHeight, isDesktop } = useContext(AppContext);
+  const { navBarHeight, footerHeight, isDesktop } = useContext(AppContext);
   return (
     <main
       style={{
         marginTop: navBarHeight,
-        height: `calc(100vh - ${navBarHeight})`,
+        height: `calc(100vh - ${navBarHeight + footerHeight}px)`,
       }}
     >
       <Box justifyContent="center" display="flex">

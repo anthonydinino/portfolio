@@ -67,7 +67,8 @@ function App() {
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
   const [state, setState] = useState({
-    navBarHeight: "64px",
+    navBarHeight: 64,
+    footerHeight: 64 + 24,
     isDesktop: matches,
   });
 

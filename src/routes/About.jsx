@@ -216,8 +216,8 @@ const About = () => {
   return (
     <main
       style={{
-        minHeight: `calc(100vh - ${navBarHeight})`,
-        margin: `${navBarHeight} 5vw 0 5vw`,
+        minHeight: `calc(100vh - ${navBarHeight}px)`,
+        margin: `${navBarHeight}px 5vw 0 5vw`,
       }}
     >
       <Box alignItems="center" display="flex" flexDirection="column">

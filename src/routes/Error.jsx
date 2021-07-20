@@ -3,12 +3,12 @@ import { Box, Typography, Button } from "@material-ui/core";
 import { AppContext } from "../App";
 
 const Error = () => {
-  const { navBarHeight } = useContext(AppContext);
+  const { navBarHeight, footerHeight } = useContext(AppContext);
   return (
     <main
       style={{
-        marginTop: navBarHeight,
-        height: `calc(100vh - ${navBarHeight})`,
+        marginTop: `${navBarHeight}px`,
+        height: `calc(100vh - ${navBarHeight + footerHeight}px)`,
       }}
     >
       <Box alignItems="center" display="flex" flexDirection="column">
