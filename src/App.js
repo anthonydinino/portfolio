@@ -43,11 +43,11 @@ function App() {
         fontFamily: "Montserrat",
       },
       h2: {
-        margin: "1ch",
+        margin: "1rem",
         fontWeight: "bold",
       },
       h4: {
-        margin: "1ch",
+        margin: "1rem",
         fontWeight: "bold",
       },
       h6: {
