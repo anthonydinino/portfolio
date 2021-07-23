@@ -57,7 +57,23 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Hello");
+    fetch("http://localhost:3000/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        message: formData.message,
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const contactForm = (
