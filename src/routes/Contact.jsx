@@ -19,8 +19,8 @@ const Contact = () => {
       display: "flex",
       justifyContent: "center",
       padding: theme.spacing(3),
-      margin: theme.spacing(3),
-      width: isDesktop ? "30em" : "100%",
+      margin: theme.spacing(3, 0),
+      width: isDesktop ? "30em" : "85%",
     },
     form: {
       width: "100%",
