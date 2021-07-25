@@ -61,10 +61,8 @@ const sendMail = async (name, message) => {
 app.post("/contact", (req, res) => {
   let name = req.body.name;
   let message = req.body.message;
-  console.log(process.env);
-
   sendMail(name, message)
-    .then((result) => console.log("Email sent...", result))
+    .then(() => console.log("Email sent..."))
     .catch((error) => console.log(error.message));
   res.json({ received: { name, message } });
 });

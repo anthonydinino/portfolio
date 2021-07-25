@@ -4,20 +4,23 @@ import {
   Typography,
   makeStyles,
   TextField,
-  Button,
   Paper,
+  Fab,
+  CircularProgress,
 } from "@material-ui/core";
+import { MailOutline, Error, Check } from "@material-ui/icons";
 import { AppContext } from "../App";
 
 const Contact = () => {
   const { navBarHeight, footerHeight, isDesktop } = useContext(AppContext);
+  const [emailStatus, setEmailStatus] = useState("idle");
   const useStyles = makeStyles((theme) => ({
     paper: {
       display: "flex",
       justifyContent: "center",
       padding: theme.spacing(3),
       margin: theme.spacing(3),
-      width: isDesktop ? "60%" : "100%",
+      width: isDesktop ? "30em" : "100%",
     },
     form: {
       width: "100%",
@@ -26,12 +29,29 @@ const Contact = () => {
         marginBottom: theme.spacing(2),
       },
     },
+    buttonProgress: {
+      color: theme.palette.primary,
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      marginTop: -12,
+      marginLeft: -12,
+    },
     submitButton: {
-      width: "100%",
+      background:
+        emailStatus === "error"
+          ? "red"
+          : emailStatus === "success"
+          ? "green"
+          : undefined,
+      "&:hover": {
+        background: emailStatus === "success" && "limegreen",
+      },
     },
   }));
+
   const [formData, setFormData] = useState({ name: "", message: "" });
-  const { paper, form, submitButton, header } = useStyles();
+  const { paper, form, submitButton, header, buttonProgress } = useStyles();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,14 +70,15 @@ const Contact = () => {
     value: formData.message,
     variant: "outlined",
     multiline: true,
-    rows: 4,
+    rows: 8,
     placeholder: "Message",
     onChange: handleChange,
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/contact", {
+    setEmailStatus("loading");
+    fetch(document.URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,21 +90,67 @@ const Contact = () => {
     })
       .then((response) => response.json())
       .then((json) => {
+        setTimeout(() => {
+          setEmailStatus("success");
+        }, 2000);
+
         console.log(json);
+        setTimeout(() => {
+          setEmailStatus("idle");
+        }, 5000);
       })
       .catch((error) => {
+        setEmailStatus("error");
+        setTimeout(() => {
+          setEmailStatus("idle");
+        }, 5000);
+        console.log("didnt work");
         console.error(error);
       });
+  };
+
+  const EmailButton = () => {
+    return (
+      <Fab
+        color="primary"
+        className={submitButton}
+        variant="extended"
+        type="submit"
+        disabled={emailStatus === "loading"}
+      >
+        {emailStatus === "error" ? (
+          <>
+            <Error style={{ marginRight: "8px" }} />
+            Error
+          </>
+        ) : emailStatus === "success" ? (
+          <>
+            <Check style={{ marginRight: "8px" }} />
+            Email Sent
+          </>
+        ) : (
+          <>
+            <MailOutline style={{ marginRight: "8px" }} />
+            {emailStatus === "loading" ? (
+              <>
+                Sending...
+                <CircularProgress size={24} className={buttonProgress} />
+              </>
+            ) : (
+              "Send Email"
+            )}
+          </>
+        )}
+      </Fab>
+    );
   };
 
   const contactForm = (
     <form className={form} onSubmit={handleSubmit}>
       <Box display="flex" flexDirection="column" alignItems="center">
-        <TextField {...nameFieldProps}></TextField>
-        <TextField {...messageFieldProps}></TextField>
-        <Button className={submitButton} type="submit">
-          Submit
-        </Button>
+        <TextField required {...nameFieldProps}></TextField>
+        <TextField required {...messageFieldProps}></TextField>
+        <EmailButton status={emailStatus} />
       </Box>
     </form>
   );

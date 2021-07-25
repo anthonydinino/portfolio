@@ -41,7 +41,6 @@ const Content = () => {
     },
   });
   const { header, subheader, button } = useStyles();
-  console.log(footerHeight);
 
   return (
     <main>
