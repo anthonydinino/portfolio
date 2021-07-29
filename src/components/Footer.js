@@ -7,7 +7,13 @@ import {
   Box,
   Typography,
 } from "@material-ui/core";
-import { GitHub, Facebook, LinkedIn, Instagram } from "@material-ui/icons";
+import {
+  GitHub,
+  Facebook,
+  LinkedIn,
+  Instagram,
+  Twitter,
+} from "@material-ui/icons";
 
 const iconAttributes = {
   href: "#",
@@ -39,6 +45,9 @@ const Footer = () => {
       </Link>
       <Link {...iconAttributes} href={"https://www.facebook.com/dinino/"}>
         <Facebook />
+      </Link>
+      <Link {...iconAttributes} href={"https://twitter.com/AnthonyDeenino"}>
+        <Twitter />
       </Link>
       <Link
         {...iconAttributes}

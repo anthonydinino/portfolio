@@ -13,9 +13,10 @@ const About = () => {
   const { navBarHeight, isDesktop } = useContext(AppContext);
   const useStyles = makeStyles({
     image: {
-      borderRadius: "8px",
-      width: isDesktop ? "70%" : "100%",
+      borderRadius: "50px",
+      width: isDesktop ? "50%" : "100%",
       minHeight: "20rem",
+      maxHeight: "10rem",
     },
     imageIcon: {
       objectFit: "contain",
@@ -224,7 +225,7 @@ const About = () => {
         <Typography variant={isDesktop ? "h2" : "h4"}>
           Who is Anthony?
         </Typography>
-        <Grid container spacing={3} justify="center" alignItems="center">
+        <Grid container spacing={3} justify="center">
           {qualifications}
           {experience}
           {whatnow}
