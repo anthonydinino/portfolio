@@ -25,6 +25,10 @@ const iconAttributes = {
 const Footer = () => {
   const styles = makeStyles({
     footer: {
+      left: 0,
+      right: 0,
+      bottom: 0,
+      width: "100vw",
       alignItems: "center",
     },
     icons: {
