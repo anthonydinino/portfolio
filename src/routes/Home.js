@@ -69,9 +69,7 @@ const Content = () => {
             And I'm a Web Developer...
           </Typography>
         </Box>
-        <Button className={button} href={"/about"}>
-          Learn about me...
-        </Button>
+        <Button className={button}>Learn about me...</Button>
       </Box>
     </main>
   );

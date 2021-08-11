@@ -67,7 +67,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <AppBar position={"static"} className={footer}>
+      <AppBar position={"relative"} className={footer}>
         <Toolbar children={displayIcons}></Toolbar>
         <Box textAlign="center">
           <Typography>

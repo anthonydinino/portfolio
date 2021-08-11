@@ -12,7 +12,6 @@ import {
   useMediaQuery,
   Drawer,
 } from "@material-ui/core";
-import About from "./routes/About";
 
 export const AppContext = React.createContext();
 //override default theme
@@ -85,9 +84,6 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home />
-            </Route>
-            <Route path="/about">
-              <About />
             </Route>
             <Route path="/contact">
               <Contact />
