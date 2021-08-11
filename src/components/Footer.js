@@ -1,12 +1,5 @@
-import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  makeStyles,
-  Link,
-  Box,
-  Typography,
-} from "@material-ui/core";
+import { React, useContext } from "react";
+import { makeStyles, Link, Typography, Grid } from "@material-ui/core";
 import {
   GitHub,
   Facebook,
@@ -14,6 +7,7 @@ import {
   Instagram,
   Twitter,
 } from "@material-ui/icons";
+import { AppContext } from "../App";
 
 const iconAttributes = {
   href: "#",
@@ -23,27 +17,35 @@ const iconAttributes = {
 };
 
 const Footer = () => {
-  const styles = makeStyles({
+  const { footerHeight } = useContext(AppContext);
+  const styles = makeStyles((theme) => ({
     footer: {
-      left: 0,
-      right: 0,
-      bottom: 0,
-      width: "100vw",
-      alignItems: "center",
+      "& > *": {
+        color: "white",
+      },
+      height: `${footerHeight}px`,
+      position: "absolute",
+      bottom: "0px",
+      left: "0px",
+      right: "0px",
+      backgroundImage: `linear-gradient(to top, hsl(203, 30%, 22%), hsl(203, 20%, 27%))`,
+      display: "grid",
+      placeItems: "center",
+      padding: "8px 0",
     },
     icons: {
-      "& > * > *": {
+      "& > * > svg": {
         transform: "scale(1.5)",
         margin: "8px 16px",
       },
-      "& > a:hover": {
+      "& > * > svg:hover": {
         color: "#A1CAC2",
       },
     },
-  });
-  const { footer, icons } = styles();
+  }));
+  const classes = styles();
   const displayIcons = (
-    <div className={icons}>
+    <div className={classes.icons}>
       <Link {...iconAttributes} href={"https://www.instagram.com/adinino21/"}>
         <Instagram />
       </Link>
@@ -66,15 +68,9 @@ const Footer = () => {
   );
 
   return (
-    <footer>
-      <AppBar position={"relative"} className={footer}>
-        <Toolbar children={displayIcons}></Toolbar>
-        <Box textAlign="center">
-          <Typography>
-            Anthony Dinino &reg; {new Date().getFullYear()}
-          </Typography>
-        </Box>
-      </AppBar>
+    <footer className={classes.footer}>
+      {displayIcons}
+      <Typography>Anthony Dinino &reg; {new Date().getFullYear()}</Typography>
     </footer>
   );
 };

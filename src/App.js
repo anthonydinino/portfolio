@@ -27,7 +27,7 @@ function App() {
 
     palette: {
       primary: {
-        main: "#2F4858",
+        main: "hsl(203, 30%, 26%)",
       },
       secondary: {
         main: "#00BEFF",
