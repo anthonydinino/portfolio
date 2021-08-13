@@ -1,6 +1,7 @@
-import Navbar from "./components/Navbar";
 import "./fonts.css";
+import Navbar from "./components/Navbar";
 import Home from "./routes/Home";
+import About from "./routes/About";
 import Contact from "./routes/Contact";
 import Error from "./routes/Error";
 import Footer from "./components/Footer";
@@ -67,7 +68,7 @@ function App() {
 
   const [state, setState] = useState({
     navBarHeight: 64,
-    footerHeight: 64 + 24,
+    footerHeight: 64,
     isDesktop: matches,
   });
 
@@ -84,8 +85,7 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home />
-            </Route>
-            <Route path="/contact">
+              <About />
               <Contact />
             </Route>
             <Route path="*">

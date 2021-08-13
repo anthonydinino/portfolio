@@ -1,5 +1,5 @@
 import { React, useContext } from "react";
-import { makeStyles, Link, Typography, Grid } from "@material-ui/core";
+import { makeStyles, Link, Typography } from "@material-ui/core";
 import {
   GitHub,
   Facebook,
@@ -23,8 +23,8 @@ const Footer = () => {
       "& > *": {
         color: "white",
       },
-      height: `${footerHeight}px`,
-      position: "absolute",
+      maxHeight: `${footerHeight}px`,
+      position: "fixed",
       bottom: "0px",
       left: "0px",
       right: "0px",

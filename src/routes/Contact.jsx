@@ -15,6 +15,12 @@ const Contact = () => {
   const { navBarHeight, footerHeight, isDesktop } = useContext(AppContext);
   const [emailStatus, setEmailStatus] = useState("idle");
   const useStyles = makeStyles((theme) => ({
+    contact: {
+      scrollSnapAlign: "start",
+      scrollMarginTop: `${navBarHeight}px`,
+      padding: `${navBarHeight + 40}px 5vw ${footerHeight + 40}px 5vw`,
+      minHeight: `calc(100vh - ${navBarHeight + footerHeight + 80}px)`,
+    },
     paper: {
       display: "flex",
       justifyContent: "center",
@@ -51,7 +57,7 @@ const Contact = () => {
   }));
 
   const [formData, setFormData] = useState({ name: "", message: "" });
-  const { paper, form, submitButton, header, buttonProgress } = useStyles();
+  const classes = useStyles();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -113,7 +119,7 @@ const Contact = () => {
     return (
       <Fab
         color="primary"
-        className={submitButton}
+        className={classes.submitButton}
         variant="extended"
         type="submit"
         disabled={emailStatus === "loading"}
@@ -134,7 +140,10 @@ const Contact = () => {
             {emailStatus === "loading" ? (
               <>
                 Sending...
-                <CircularProgress size={24} className={buttonProgress} />
+                <CircularProgress
+                  size={24}
+                  className={classes.buttonProgress}
+                />
               </>
             ) : (
               "Send Email"
@@ -146,7 +155,7 @@ const Contact = () => {
   };
 
   const contactForm = (
-    <form className={form} onSubmit={handleSubmit}>
+    <form className={classes.form} onSubmit={handleSubmit}>
       <Box display="flex" flexDirection="column" alignItems="center">
         <TextField required {...nameFieldProps}></TextField>
         <TextField required {...messageFieldProps}></TextField>
@@ -155,28 +164,23 @@ const Contact = () => {
     </form>
   );
   return (
-    <main
-      style={{
-        margin: `${navBarHeight}px 5vw 0px 5vw`,
-        minHeight: `calc(100vh - ${navBarHeight + footerHeight}px)`,
-      }}
+    <Box
+      className={classes.contact}
+      id={"contact"}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
     >
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
-      >
-        <Typography className={header} variant={isDesktop ? "h2" : "h4"}>
-          Contact
-        </Typography>
-        <Typography>
-          Please fill in the form below to contact me. This will send me an
-          email and I will get back to you ASAP.
-        </Typography>
-        <Paper className={paper}>{contactForm}</Paper>
-      </Box>
-    </main>
+      <Typography className={classes.header} variant={isDesktop ? "h2" : "h4"}>
+        Contact
+      </Typography>
+      <Typography>
+        Please fill in the form below to contact me. This will send me an email
+        and I will get back to you ASAP.
+      </Typography>
+      <Paper className={classes.paper}>{contactForm}</Paper>
+    </Box>
   );
 };
 

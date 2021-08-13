@@ -20,7 +20,7 @@ const Header = () => {
   const [drawerState, setState] = useState(false);
   const useStyles = makeStyles(() => ({
     header: {
-      minHeight: navBarHeight,
+      height: navBarHeight,
       left: 0,
       right: 0,
       top: 0,
@@ -58,9 +58,10 @@ const Header = () => {
   );
 
   const menuLinks = [
-    { label: "Home", href: "/" },
-    { label: "Projects", href: "/projects" },
-    { label: "Contact", href: "/contact" },
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
   ];
   const getMenuLinks = () => {
     return menuLinks.map(({ label, href }) => {
