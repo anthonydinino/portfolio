@@ -18,8 +18,7 @@ const Contact = () => {
     contact: {
       scrollSnapAlign: "start",
       scrollMarginTop: `${navBarHeight}px`,
-      padding: `${navBarHeight + 40}px 5vw ${footerHeight + 40}px 5vw`,
-      minHeight: `calc(100vh - ${navBarHeight + footerHeight + 80}px)`,
+      padding: `0 5vw ${footerHeight + 40}px 5vw`,
     },
     paper: {
       display: "flex",

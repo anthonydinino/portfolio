@@ -40,7 +40,7 @@ function App() {
         fontFamily: "Tahoma",
       },
       allVariants: {
-        fontFamily: "Montserrat",
+        fontFamily: "Open Sans",
       },
       h2: {
         margin: "1rem",

@@ -67,12 +67,7 @@ const Footer = () => {
     </div>
   );
 
-  return (
-    <footer className={classes.footer}>
-      {displayIcons}
-      <Typography>Anthony Dinino &reg; {new Date().getFullYear()}</Typography>
-    </footer>
-  );
+  return <footer className={classes.footer}>{displayIcons}</footer>;
 };
 
 export default Footer;
