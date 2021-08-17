@@ -1,7 +1,9 @@
 import { React, useContext } from "react";
+import { Link } from "react-router-dom";
 import { AppContext } from "../App";
 import { makeStyles, Box, Paper, Typography } from "@material-ui/core";
-import { CheckCircle } from "@material-ui/icons";
+import Tickbox from "../components/Tickbox";
+import { GetApp } from "@material-ui/icons";
 
 const About = () => {
   const { navBarHeight, footerHeight, isDesktop } = useContext(AppContext);
@@ -29,6 +31,15 @@ const About = () => {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
+      "& > a": {
+        textDecoration: "none",
+        fontFamily: "Work Sans",
+        "& > div": {
+          padding: "2px",
+          display: "flex",
+          alignItems: "center",
+        },
+      },
       "& figure": {
         display: "grid",
         placeItems: "center",
@@ -93,6 +104,7 @@ const About = () => {
     skill: {
       scrollSnapAlign: isDesktop ? undefined : "start",
       scrollMarginTop: `${navBarHeight + 20}px`,
+      textAlign: "center",
       minWidth: isDesktop ? "15rem" : "90%",
       borderRadius: "10px",
       padding: "20px",
@@ -102,16 +114,16 @@ const About = () => {
       flexGrow: "1",
       display: "flex",
       flexDirection: "column",
-      "& > div": {
-        height: "40px",
-        backgroundColor: "hsl(203, 30%, 26%)",
-        width: "100%",
-        display: "grid",
-        placeItems: "center",
-        "& > p": {
-          color: "white",
-          textAlign: "center",
-        },
+    },
+    subheading: {
+      height: "40px",
+      backgroundColor: "hsl(203, 30%, 26%)",
+      width: "100%",
+      display: "grid",
+      placeItems: "center",
+      "& > p": {
+        color: "white",
+        textAlign: "center",
       },
     },
   }));
@@ -128,6 +140,18 @@ const About = () => {
     >
       <div className={classes.container}>
         <Paper className={classes.header} elevation={5}>
+          <Typography
+            className={classes.title}
+            variant={isDesktop ? "h2" : "h4"}
+          >
+            About Me
+          </Typography>
+          <Link to="/files/Anthony-Dinino.docx" target="_blank" download>
+            <div>
+              <GetApp />
+              My Resume
+            </div>
+          </Link>
           <figure>
             <img
               src={process.env.PUBLIC_URL + "/assets/graduation.jpg"}
@@ -135,7 +159,7 @@ const About = () => {
             />
             <figcaption>
               <Typography variant="body2" color="textSecondary">
-                Anthony on his graduation day at the University of South
+                B.Tech. Information and Technology at the University of South
                 Australia
               </Typography>
             </figcaption>
@@ -143,26 +167,11 @@ const About = () => {
 
           <article className={classes.article}>
             <section>
-              <div>
-                <CheckCircle />
-                <Typography>Graduate</Typography>
-              </div>
-              <div>
-                <CheckCircle />
-                <Typography>Certified</Typography>
-              </div>
-              <div>
-                <CheckCircle />
-                <Typography>Experienced</Typography>
-              </div>
-              <div>
-                <CheckCircle />
-                <Typography>Hardworking</Typography>
-              </div>
-              <div>
-                <CheckCircle />
-                <Typography>Passionate</Typography>
-              </div>
+              <Tickbox word="Graduate"></Tickbox>
+              <Tickbox word="Certified"></Tickbox>
+              <Tickbox word="Experienced"></Tickbox>
+              <Tickbox word="Hardworking"></Tickbox>
+              <Tickbox word="Passionate"></Tickbox>
             </section>
             <div className={classes.quote}>
               <Typography>
@@ -184,26 +193,38 @@ const About = () => {
               <Typography>
                 Since 2015, Anthony has pursued his passion, graduating with a
                 Bachelor's of Information Technology and working full-time as a
-                Project Coordinator Anthony has always been focused on the task
+                Project Coordinator, Anthony has always been focused on the task
                 at hand.
               </Typography>
             </div>
           </article>
         </Paper>
         <Paper className={classes.skill}>
-          <div>
+          <div className={classes.subheading}>
             <Typography>Front-end Development</Typography>
           </div>
+          <Typography variant="h6">Technologies I use</Typography>
+          <Tickbox word="ReactJS" />
+          <Tickbox word="JavaScript ES6" />
+          <Tickbox word="HTML / CSS" />
         </Paper>
         <Paper className={classes.skill}>
-          <div>
+          <div className={classes.subheading}>
             <Typography>Database Integration</Typography>
           </div>
+          <Typography variant="h6">Technologies I use</Typography>
+          <Tickbox word="MongoDB" />
+          <Tickbox word="PostgreSQL" />
+          <Tickbox word="Entity Framework" />
         </Paper>
         <Paper className={classes.skill}>
-          <div>
+          <div className={classes.subheading}>
             <Typography>Back-end Development</Typography>
           </div>
+          <Typography variant="h6">Technologies I use</Typography>
+          <Tickbox word="NodeJS" />
+          <Tickbox word="Express" />
+          <Tickbox word="AWS cloud services" />
         </Paper>
       </div>
     </Box>

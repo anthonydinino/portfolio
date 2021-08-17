@@ -1,5 +1,5 @@
 import { React, useContext } from "react";
-import { makeStyles, Link, Typography } from "@material-ui/core";
+import { makeStyles, Link } from "@material-ui/core";
 import {
   GitHub,
   Facebook,
