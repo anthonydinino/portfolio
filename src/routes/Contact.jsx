@@ -83,7 +83,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setEmailStatus("loading");
-    fetch(document.URL, {
+    fetch(document.URL + "contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
