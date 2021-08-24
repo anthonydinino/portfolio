@@ -7,7 +7,7 @@ const PORT = 3000;
 
 //import router
 const projectRouter = require("./projects");
-app.use("/project", projectRouter);
+app.use("/projects", projectRouter);
 
 app.use(express.static("../build"));
 app.use(express.json());

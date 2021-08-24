@@ -11,7 +11,7 @@ const About = () => {
     about: {
       scrollSnapAlign: "start",
       scrollMarginTop: `${navBarHeight}px`,
-      backgroundImage: "linear-gradient(180deg, #fff9a9, #fcfaec)",
+      backgroundImage: "linear-gradient(180deg, #fff9a9, #f2eb8c)",
     },
     container: {
       width: isDesktop ? "80vw" : "90vw",

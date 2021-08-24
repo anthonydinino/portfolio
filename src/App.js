@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./routes/Home";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
+import Projects from "./routes/Projects";
 import Error from "./routes/Error";
 import Footer from "./components/Footer";
 import React, { useEffect, useState } from "react";
@@ -86,6 +87,7 @@ function App() {
             <Route exact path="/">
               <Home />
               <About />
+              <Projects />
               <Contact />
             </Route>
             <Route path="*">
