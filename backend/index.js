@@ -5,6 +5,10 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
+//import router
+const projectRouter = require("./projects");
+app.use("/project", projectRouter);
+
 app.use(express.static("../build"));
 app.use(express.json());
 
