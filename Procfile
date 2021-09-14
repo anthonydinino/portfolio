@@ -1,1 +1,1 @@
-web: node current/backend/server.js
+web: npm run deploy
