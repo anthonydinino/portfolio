@@ -1,6 +1,7 @@
 const express = require("express");
 const { sendMail } = require("./nodemailer");
 
+const fs = require("fs");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,9 +23,19 @@ app.post("/contact", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res
-    .status(200)
-    .sendFile(path.resolve(path.join(__dirname, "build", "index.html")));
+  fs.access(path.join(__dirname, "current"), (error) => {
+    if (error) {
+      res
+        .status(200)
+        .sendFile(path.resolve(path.join(__dirname, "build", "index.html")));
+    } else {
+      res
+        .status(200)
+        .sendFile(
+          path.resolve(path.join(__dirname, "current", "build", "index.html"))
+        );
+    }
+  });
 });
 
 app.listen(PORT, () => {
