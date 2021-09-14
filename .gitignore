@@ -10,7 +10,6 @@ test.http
 /coverage
 
 # production
-/build
 /backend/build
 
 # misc

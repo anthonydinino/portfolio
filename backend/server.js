@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 const projectRouter = require("./projects");
 app.use("/projects", projectRouter);
 
-app.use(express.static("build"));
+app.use(express.static(path.join(__dirname, "current", "build")));
 app.use(express.json());
 
 app.post("/contact", (req, res) => {
