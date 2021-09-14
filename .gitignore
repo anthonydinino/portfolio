@@ -11,6 +11,7 @@ test.http
 
 # production
 /build
+/backend/build
 
 # misc
 .DS_Store

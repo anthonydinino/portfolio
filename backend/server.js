@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const projectRouter = require("./projects");
 app.use("/projects", projectRouter);
 
-app.use(express.static("../build"));
+app.use(express.static("build"));
 app.use(express.json());
 
 app.post("/contact", (req, res) => {
@@ -22,7 +22,9 @@ app.post("/contact", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.status(200).sendFile(path.resolve("../build/index.html"));
+  res
+    .status(200)
+    .sendFile(path.resolve(path.join(__dirname, "build", "index.html")));
 });
 
 app.listen(PORT, () => {
