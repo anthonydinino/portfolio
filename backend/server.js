@@ -22,7 +22,7 @@ app.post("/contact", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.status(200).sendFile(path.resolve("./build/index.html"));
+  res.status(200).sendFile(path.resolve("../build/index.html"));
 });
 
 app.listen(PORT, () => {
