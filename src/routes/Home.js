@@ -8,7 +8,6 @@ const Content = () => {
   const useStyles = makeStyles({
     home: {
       backgroundImage: "linear-gradient(180deg, #fffaea, #fff9a9)",
-      scrollSnapAlign: "start",
     },
     header: {
       textTransform: "uppercase",

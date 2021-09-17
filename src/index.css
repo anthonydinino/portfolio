@@ -1,8 +1,3 @@
-html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-}
-
 body {
   background-color: #fffaea;
   margin: 0 0;

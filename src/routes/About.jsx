@@ -9,8 +9,6 @@ const About = () => {
   const { navBarHeight, footerHeight, isDesktop } = useContext(AppContext);
   const useStyles = makeStyles((theme) => ({
     about: {
-      scrollSnapAlign: "start",
-      scrollMarginTop: `${navBarHeight}px`,
       backgroundImage: "linear-gradient(180deg, #fff9a9, #f2eb8c)",
     },
     container: {
@@ -60,15 +58,11 @@ const About = () => {
       flexDirection: "column",
       maxWidth: "100%",
       "& section": {
-        flexGrow: "1",
-        display: "grid",
-        gap: "30px",
-        placeItems: "center",
-        gridTemplateColumns: "repeat(auto-fit, minmax(10em,1fr))",
+        display: isDesktop ? "flex" : "block",
+        alignItems: "center",
         height: "100%",
         padding: "20px",
         width: "100%",
-        boxSizing: "border-box",
         "& > div": {
           height: "40px",
           width: "100%",
