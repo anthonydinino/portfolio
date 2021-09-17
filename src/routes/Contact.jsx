@@ -16,6 +16,8 @@ const Contact = () => {
   const [emailStatus, setEmailStatus] = useState("idle");
   const useStyles = makeStyles((theme) => ({
     contact: {
+      scrollSnapAlign: "start",
+      scrollMarginTop: `${navBarHeight}px`,
       backgroundImage: "linear-gradient(180deg, #fffaea, #efefef)",
       padding: `0 5vw ${footerHeight + 40}px 5vw`,
     },

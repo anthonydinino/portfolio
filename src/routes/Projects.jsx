@@ -7,6 +7,8 @@ const Contact = () => {
   const { isDesktop, navBarHeight } = useContext(AppContext);
   const useStyles = makeStyles((theme) => ({
     projects: {
+      scrollMarginTop: `${navBarHeight}px`,
+      scrollSnapAlign: "start",
       backgroundImage: "linear-gradient(180deg, #f2eb8c, #fffaea)",
       width: "100%",
       minHeight: "50vh",

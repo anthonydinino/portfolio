@@ -9,6 +9,8 @@ const About = () => {
   const { navBarHeight, footerHeight, isDesktop } = useContext(AppContext);
   const useStyles = makeStyles((theme) => ({
     about: {
+      scrollSnapAlign: "start",
+      scrollMarginTop: `${navBarHeight}px`,
       backgroundImage: "linear-gradient(180deg, #fff9a9, #f2eb8c)",
     },
     container: {
