@@ -62,6 +62,7 @@ const Header = () => {
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
+    { label: "Feedback", href: "#comments" },
   ];
   const getMenuLinks = () => {
     return menuLinks.map(({ label, href }) => {

@@ -19,7 +19,7 @@ const Contact = () => {
       scrollSnapAlign: "start",
       scrollMarginTop: `${navBarHeight}px`,
       backgroundImage: "linear-gradient(180deg, #fffaea, #efefef)",
-      padding: `0 5vw ${footerHeight + 40}px 5vw`,
+      padding: `0 5vw ${footerHeight}px 5vw`,
     },
     paper: {
       display: "flex",

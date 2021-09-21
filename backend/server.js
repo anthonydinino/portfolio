@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 3000;
 const projectRouter = require("./projects");
 app.use("/projects", projectRouter);
 
+const dbRouter = require("./db");
+app.use("/db", dbRouter);
+
 app.use(express.static(path.join(__dirname, "build")));
 app.use(express.static(path.join(__dirname, "current", "build")));
 
