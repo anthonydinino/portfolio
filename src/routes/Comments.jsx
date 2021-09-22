@@ -22,6 +22,7 @@ const Comments = () => {
       width: isDesktop ? "40em" : "85%",
     },
     commentForm: {
+      width: "100%",
       "& > *:not(*:nth-last-child(1))": {
         margin: "0.5rem 0",
       },
@@ -55,6 +56,10 @@ const Comments = () => {
         marginTop: theme.spacing(2),
         "& svg": {
           marginRight: theme.spacing(1),
+        },
+        "& svg:hover": {
+          cursor: "pointer",
+          color: theme.palette.primary.main,
         },
       },
     },
@@ -110,6 +115,16 @@ const Comments = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleLike = (_id) => {
+    fetch(document.URL.split("#")[0] + `api/comments/${_id}`, {
+      method: "PUT",
+    })
+      .then((response) => {
+        refreshComments();
+      })
+      .catch((err) => console.error(err.message));
+  };
+
   let form;
   if (isCommentPosted) {
     form = (
@@ -158,7 +173,7 @@ const Comments = () => {
         <Typography variant={"h4"}>Share a Comment Below</Typography>
         {form}
         {comments &&
-          comments.map(({ name, comment, timestamp, likes }) => {
+          comments.map(({ name, comment, timestamp, likes, _id }) => {
             const date = new Date(timestamp).toDateString();
             return (
               <Paper className={classes.comment}>
@@ -170,7 +185,7 @@ const Comments = () => {
                   <Typography>{comment}</Typography>
                 </div>
                 <div className={"commentFooter"}>
-                  <ThumbUp />
+                  <ThumbUp cursor onClick={() => handleLike(_id)} />
                   <Typography>{likes}</Typography>
                 </div>
               </Paper>
