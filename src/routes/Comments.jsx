@@ -19,6 +19,7 @@ const Comments = () => {
       justifyContent: "center",
       alignItems: "center",
       textAlign: "center",
+      width: isDesktop ? "40em" : "85%",
     },
     commentForm: {
       "& > *:not(*:nth-last-child(1))": {
