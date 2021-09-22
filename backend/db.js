@@ -1,3 +1,4 @@
+const { Person } = require("@material-ui/icons");
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -17,6 +18,8 @@ let commentSchema = new mongoose.Schema({
 });
 
 const Comment = mongoose.model("Comment", commentSchema);
+
+//fetch all comments in descending order
 router.get("/comments", async (req, res) => {
   try {
     const comments = await Comment.find().sort({ timestamp: -1 });
@@ -26,6 +29,7 @@ router.get("/comments", async (req, res) => {
   }
 });
 
+//post a comment
 router.post("/comments", async (req, res) => {
   const comment = new Comment({
     name: req.body.name,
@@ -35,7 +39,19 @@ router.post("/comments", async (req, res) => {
     const savedComment = await comment.save();
     res.json(savedComment);
   } catch (error) {
-    res.json({ message: error });
+    res.status(500).json({ message: error });
+  }
+});
+
+//add a like to comment
+router.put("/comments/:id", async (req, res) => {
+  try {
+    const comment = await Comment.findOne({ _id: req.params.id });
+    comment.likes++;
+    await comment.save();
+    return res.json(comment);
+  } catch (error) {
+    return res.status(500).json({ message: error });
   }
 });
 
