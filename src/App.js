@@ -24,7 +24,7 @@ function App() {
   const theme = createMuiTheme({
     breakpoints: {
       values: {
-        sm: 738,
+        sm: 900,
       },
     },
 
