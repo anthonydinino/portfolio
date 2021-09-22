@@ -11,6 +11,7 @@
     "dotenv": "^10.0.0",
     "googleapis": "^82.0.0",
     "i": "^0.3.6",
+    "mongoose": "^6.0.7",
     "nodemailer": "^6.6.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -19,7 +20,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "deploy": "npm run build && node backend/server.js",
+    "deploy": "npm run build && cd backend && node server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

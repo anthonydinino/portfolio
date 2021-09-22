@@ -84,7 +84,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setEmailStatus("loading");
-    fetch(document.URL + "contact", {
+    fetch(document.URL.split("#")[0] + "contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -110,7 +110,6 @@ const Contact = () => {
         setTimeout(() => {
           setEmailStatus("idle");
         }, 5000);
-        console.log("didnt work");
         console.error(error);
       });
   };

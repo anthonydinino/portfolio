@@ -1,17 +1,20 @@
 const express = require("express");
 const { sendMail } = require("./nodemailer");
+var dotenv = require("dotenv");
+dotenv.config({ path: "../.env" });
 
 const fs = require("fs");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//import router
+//import project router
 const projectRouter = require("./projects");
 app.use("/projects", projectRouter);
 
+//import database
 const dbRouter = require("./db");
-app.use("/db", dbRouter);
+app.use("/api", dbRouter);
 
 app.use(express.static(path.join(__dirname, "build")));
 app.use(express.static(path.join(__dirname, "current", "build")));

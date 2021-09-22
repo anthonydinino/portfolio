@@ -1,8 +1,6 @@
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
-var dotenv = require("dotenv");
 
-dotenv.config({ path: "../.env" });
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = "https://developers.google.com/oauthplayground";
@@ -37,10 +35,10 @@ const sendMail = async (name, message) => {
       subject: "PORTFOLIO - CONTACT EMAIL",
       text: `Name: ${name} Message: ${message}`,
       html: `
-          <h1>Someone has sent you a message from your portfolio! </h1>
+          <h2>Someone has sent you a message from your portfolio! </h2>
           </br>
-          <h2>Name:</h2><p>${name}</p>
-          <h2>Message:</h2><p>${message}</p>
+          <h3>Name:</h3><p>${name}</p>
+          <h3>Message:</h3><p>${message}</p>
           </br>
         `,
     };
