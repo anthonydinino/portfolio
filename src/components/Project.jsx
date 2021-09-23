@@ -39,7 +39,7 @@ const Project = ({ name, img, desc }) => {
 
   const classes = useStyles();
   return (
-    <Link href={`/projects/${img}`}>
+    <Link href={`/projects/${img}`} target={"_blank"}>
       <div className={classes.project}>
         <div className={classes.img}></div>
         <div className={classes.name}>
