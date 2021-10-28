@@ -88,7 +88,6 @@ function App() {
             <Route exact path="/">
               <Home />
               <About />
-              <Projects />
               <Contact />
               <Comments />
             </Route>

@@ -169,28 +169,21 @@ const About = () => {
               <Tickbox word="Hardworking"></Tickbox>
               <Tickbox word="Passionate"></Tickbox>
             </section>
-            <div className={classes.quote}>
-              <Typography>
-                <code>
-                  <em>"</em>Show me the code!
-                  <em>"</em>
-                </code>
-              </Typography>
-            </div>
+
             <div className={classes.bio}>
               <Typography>
-                Since Anthony was very young, he has always had a keen eye for
-                technology and solving problems. <em>"It keeps me busy"</em> is
-                what Anthony would say. However, what seems like an innocent
-                hobby can transcend into something much more than just a mere
-                mind distraction. A career perhaps?
+                Starting IT in since highschool Anthony has made IT software
+                development his passion. Since 2015, Anthony has pursued his
+                passion, graduating with a Bachelor's of Information Technology
+                and has experience as an IT project coordinator leading small
+                teams of developers.
               </Typography>
               <br />
               <Typography>
-                Since 2015, Anthony has pursued his passion, graduating with a
-                Bachelor's of Information Technology and working full-time as a
-                Project Coordinator, Anthony has always been focused on the task
-                at hand.
+                Anthony has always been focused on the task at hand and
+                continues to pursue a professionalism in his IT career. Anthony
+                is now focused on web development using the below technologies
+                and frameworks.
               </Typography>
             </div>
           </article>
@@ -199,7 +192,6 @@ const About = () => {
           <div className={classes.subheading}>
             <Typography>Front-end Development</Typography>
           </div>
-          <Typography variant="h6">Technologies I use</Typography>
           <Tickbox word="ReactJS" />
           <Tickbox word="JavaScript ES6" />
           <Tickbox word="HTML / CSS" />
@@ -208,7 +200,6 @@ const About = () => {
           <div className={classes.subheading}>
             <Typography>Database Integration</Typography>
           </div>
-          <Typography variant="h6">Technologies I use</Typography>
           <Tickbox word="MongoDB" />
           <Tickbox word="PostgreSQL" />
           <Tickbox word="Entity Framework" />
@@ -217,7 +208,6 @@ const About = () => {
           <div className={classes.subheading}>
             <Typography>Back-end Development</Typography>
           </div>
-          <Typography variant="h6">Technologies I use</Typography>
           <Tickbox word="NodeJS" />
           <Tickbox word="Express" />
           <Tickbox word="AWS cloud services" />
